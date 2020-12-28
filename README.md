@@ -45,4 +45,5 @@ alias fc="flutter create"
 ```
 alias py="python3"
 alias n="node"
+alias rb="ruby"
 ```
