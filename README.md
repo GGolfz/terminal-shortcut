@@ -47,3 +47,12 @@ alias py="python3"
 alias n="node"
 alias rb="ruby"
 ```
+
+## Open Link
+```
+alias gh="obs https://github.com/ggolfz"
+alias ggolfz="obs https://ggolfz.codes"
+obs() {
+    open $1 -a /Applications/Microsoft\ Edge.app
+}
+```
