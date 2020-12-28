@@ -8,8 +8,11 @@
 
 ```
 alias dt="cd ~/Desktop"
+alias pv="cd .."
 alias c="code ."
 alias -s {js,ts,html,css,md,json,py,yml,yaml,dart,rb}=code
+alias config="vi ~/.zshrc"
+alias act="source ~/.zshrc"
 ```
 
 ## Git Shortcut
@@ -23,6 +26,7 @@ alias gcm="git commit -m"
 alias gph="git push"
 alias gpho="git push -u"
 alias gpl="git pull"
+alias gs="git status"
 alias grm="git remote add origin"
 ```
 
