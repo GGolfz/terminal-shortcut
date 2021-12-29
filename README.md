@@ -60,12 +60,16 @@ opengit() {
     if [ "$1" = "init" ]; then
         obs https://github.com/ggolfz $1
     else
-        url=$(cat .git/config | grep url | cut -d "=" -f 2 | cut -d " " -f 2)
-        split=$(echo $url | cut -d ":" -f 1)
-        if [ x"$split" = x"git@github.com" ]; then
-            obs https://github.com/$(echo $url | cut -d ":" -f 2)
+        if [ -f ".git/config" ]; then
+            url=$(cat .git/config | grep url | cut -d "=" -f 2 | cut -d " " -f 2)
+            split=$(echo $url | cut -d ":" -f 1)
+            if [ x"$split" = x"git@github.com" ]; then
+                obs https://github.com/$(echo $url | cut -d ":" -f 2)
+            else
+                obs $url
+            fi
         else
-            obs $url
+            obs https://github.com/ggolfz
         fi
     fi
 }
