@@ -54,8 +54,21 @@ alias rb="ruby"
 
 ## Open Link
 ```
-alias gh="obs https://github.com/ggolfz $1"
+alias gh="opengit"
 alias ggolfz="obs https://ggolfz.codes"
+opengit() {
+    if [ "$1" = "init" ]; then
+        obs https://github.com/ggolfz $1
+    else
+        url=$(cat .git/config | grep url | cut -d "=" -f 2 | cut -d " " -f 2)
+        split=$(echo $url | cut -d ":" -f 1)
+        if [ x"$split" = x"git@github.com" ]; then
+            obs https://github.com/$(echo $url | cut -d ":" -f 2)
+        else
+            obs $url
+        fi
+    fi
+}
 obs() {
     if [ x"$2" = x"init" ] ; then obs https://github.com/new ;  
     else open $1/$2 -a /Applications/Microsoft\ Edge.app ;
